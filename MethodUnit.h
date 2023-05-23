@@ -1,7 +1,7 @@
 #ifndef METHODUNIT_H
 #define METHODUNIT_H
-#include<Unit.h>
-#include<ClassUnit.h>
+#include"Unit.h"
+#include"ClassUnit.h"
 
 class MethodUnit : public Unit {
 public:
@@ -17,7 +17,7 @@ public:
      void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {
         m_body.push_back( unit );
      }
-     std::string compile( unsigned int level = 0 ) const {
+     /*std::string compile( unsigned int level = 0 ) const {
          std::string result = generateShift( level );
 
          if( m_flags & STATIC ) {
@@ -42,8 +42,8 @@ public:
 
          result += generateShift( level ) + "}\n";
          return result;
-     }
-private:
+     }*/
+protected:
      std::string m_name;
      std::string m_returnType;
      Flags m_flags;

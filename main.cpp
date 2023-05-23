@@ -4,7 +4,7 @@
 #include<MethodUnit.h>
 #include<PrintOperatorUnit.h>
 
-std::string generateProgram() {
+/*std::string generateProgram() {
      ClassUnit myClass( "MyClass" );
      myClass.add(
         std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),
@@ -30,10 +30,10 @@ std::string generateProgram() {
 
      return myClass.compile();
 }
-
+*/
 
 int main()
 {
-    std::cout << generateProgram() << std::endl;
+    //std::cout << generateProgram() << std::endl;
      return 0;
 }

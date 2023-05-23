@@ -1,7 +1,7 @@
 #ifndef PRINTOPERATORUNIT_H
 #define PRINTOPERATORUNIT_H
-#include<Unit.h>
-#include<ClassUnit.h>
+#include"Unit.h"
+#include"ClassUnit.h"
 
 class PrintOperatorUnit : public Unit {
 public:
@@ -12,8 +12,6 @@ public:
     } */
 
 protected:
-
-private:
     std::string m_text;
 };
 #endif // PRINTOPERATORUNIT_H
