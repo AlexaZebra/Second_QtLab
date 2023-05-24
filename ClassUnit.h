@@ -26,7 +26,7 @@ public:
         m_fields[ accessModifier ].push_back( unit );
     }
 
-    virtual std::string compile( unsigned int level = 0 ) const = 0;
+    //virtual std::string compile( unsigned int level = 0 ) const = 0;
        /*std::string result = generateShift( level ) + "class " + m_name + " {\n";
         for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
             if( m_fields[ i ].empty() ) {continue;}

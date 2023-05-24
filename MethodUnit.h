@@ -17,6 +17,7 @@ public:
      void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {
         m_body.push_back( unit );
      }
+     //virtual std::string compile( unsigned int level = 0 ) const = 0;
      /*std::string compile( unsigned int level = 0 ) const {
          std::string result = generateShift( level );
 

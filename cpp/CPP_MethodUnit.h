@@ -9,7 +9,7 @@ public:
     CPP_MethodUnit(const std::string& name, const std::string& returnType, const Flags& flags):
         MethodUnit( name, returnType, flags ) {};
 
-    std::string compile(const unsigned int level = 0) const {
+    std::string compile(const unsigned int level = 0) const override{
         std::string result = generateShift(level);      // производим нужные сдвиги
         if (m_flags & STATIC)                           // если бит флага установлен на STATIC,
             result += "static ";                        // то метод статичный
