@@ -3,6 +3,7 @@
 #include"ClassUnit.h"
 
 class CPP_ClassUnit : public ClassUnit {
+public:
     CPP_ClassUnit(const std::string& name): ClassUnit(name){};
 
     std::string compile(unsigned int level = 0) const override{
