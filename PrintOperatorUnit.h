@@ -3,6 +3,7 @@
 #include"Unit.h"
 #include"ClassUnit.h"
 
+// вывод юнита
 class PrintOperatorUnit : public Unit {
 public:
     explicit PrintOperatorUnit( const std::string& text ) : m_text( text ) { }

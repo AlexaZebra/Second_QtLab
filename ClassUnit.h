@@ -3,6 +3,7 @@
 #include<vector>
 #include"Unit.h"
 
+// создание юнита "класс"
 class ClassUnit : public Unit
 {
 public:
@@ -14,19 +15,18 @@ public:
     static const std::vector< std::string > ACCESS_MODIFIERS;
 
 public:
-    explicit ClassUnit( const std::string& name ) : m_name( name ) {
-        m_fields.resize( ACCESS_MODIFIERS.size() );
+    explicit ClassUnit( const std::string& name ) : m_name( name ) { // конструктор инициализирует имя класса
+        m_fields.resize( ACCESS_MODIFIERS.size() );                  // и вектор модификаторов класса
     }
 
-    void add( const std::shared_ptr< Unit >& unit, Flags flags ) {
-        int accessModifier = PRIVATE;
-        if( flags < ACCESS_MODIFIERS.size() ) {
-            accessModifier = flags;
+    void add( const std::shared_ptr< Unit >& unit, Flags flags ) { // функция добавления юнита в вектор модификаторов класса
+        int accessModifier = PRIVATE;                              // по умолчанию модификатор private (если вдруг передали ошибочное значение)
+        if( flags < ACCESS_MODIFIERS.size() ) {                    // если был передан другой из существующих модификаторов,
+            accessModifier = flags;                                // то присваиваем его
         }
-        m_fields[ accessModifier ].push_back( unit );
+        m_fields[ accessModifier ].push_back( unit );              // добавляем наш юнит в нужную область доступа
     }
 
-    //virtual std::string compile( unsigned int level = 0 ) const = 0;
        /*std::string result = generateShift( level ) + "class " + m_name + " {\n";
         for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
             if( m_fields[ i ].empty() ) {continue;}
@@ -42,9 +42,9 @@ public:
         return result;
     } */
 protected:
-    std::string m_name;
+    std::string m_name;                                   // имя класса
     using Fields = std::vector< std::shared_ptr<Unit> >;
-    std::vector< Fields > m_fields;
+    std::vector< Fields > m_fields;                       // модификаторы класса (вектор векторов)
 };
 const std::vector< std::string > ClassUnit::ACCESS_MODIFIERS = { "public",
 "protected", "private" };

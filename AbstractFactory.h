@@ -5,7 +5,7 @@
 #include "MethodUnit.h"
 #include "PrintOperatorUnit.h"
 
-// Абстрактная фабрика с дефолтным конструктором и методами, возвращающие smart pointers (shared_ptr) на ClassUnit, MethodUnit, PrintUnit
+// Абстрактная фабрика с методами, возвращающие smart pointers (shared_ptr) на ClassUnit, MethodUnit, PrintUnit
 class AbstractFactory
 {
 public:
