@@ -1,27 +1,23 @@
-#ifndef CPP_METHODUNIT_H
-#define CPP_METHODUNIT_H
+#ifndef CSHARP_METHODUNIT_H
+#define CSHARP_METHODUNIT_H
 
 #include"MethodUnit.h"
 
-class CPP_MethodUnit : public MethodUnit
+class CSHARP_MethodUnit: public MethodUnit
 {
 public:
-    CPP_MethodUnit(const std::string& name, const std::string& returnType, const Flags& flags):
+    CSHARP_MethodUnit(const std::string& name, const std::string& returnType, const Flags& flags):
         MethodUnit( name, returnType, flags ) {};
 
     std::string compile(const unsigned int level = 0) const override{
-        std::string result = generateShift(level);      // производим нужные сдвиги
+        std::string result = "";
         if (m_flags & STATIC)                           // если бит флага установлен на STATIC,
             result += "static ";                        // то метод статичный
-        else if (m_flags & VIRTUAL)                     // если бит VIRTUAL,
+        else if (m_flags & VIRTUAL)                     // иначе, если бит VIRTUAL,
             result += "virtual ";                       // то метод виртуальный
 
         result += m_returnType + ' ' + m_name + "()";   // добавляем возвращаемый тип и имя метода
-
-        if (m_flags & CONST)                            // если имеет спецификатор CONST,
-            result += " const";                         // то добавим const
-        result += " {\n";                               // скобка метода
-
+                                                        // const для метода нет в C#
         for (const auto& it : m_body)                   // производим генерацию с нужными отступами
             result += it->compile(level + 1);
 
@@ -30,4 +26,4 @@ public:
     };
 };
 
-#endif // CPP_METHODUNIT_H
+#endif // CSHARP_METHODUNIT_H

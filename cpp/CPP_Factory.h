@@ -11,7 +11,7 @@ class CPP_AbstractFactorty : public AbstractFactory
 {
 public:
     // cоздаёт smart ptr CPP_ClassUnit и возвращает его
-    std::shared_ptr<ClassUnit> CreateClassUnit(const std::string& name, Unit::Flags /*flags*/ = 0) const override{
+    std::shared_ptr<ClassUnit> CreateClassUnit(const std::string& name) const override{
         return std::make_shared<CPP_ClassUnit>(name);
     };
 

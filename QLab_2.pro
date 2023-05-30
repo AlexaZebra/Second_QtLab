@@ -25,6 +25,10 @@ HEADERS += \
     cpp/CPP_Factory.h \
     cpp/CPP_MethodUnit.h \
     cpp/CPP_PrintOperatorUnit.h \
+    csharp/CSHARP_ClassUnit.h \
+    csharp/CSHARP_Factory.h \
+    csharp/CSHARP_MethodUnit.h \
+    csharp/CSHARP_PrintOperatorUnit.h \
     include/ClassUnit.h \
     include/Factory.h \
     include/MethodUnit.h \

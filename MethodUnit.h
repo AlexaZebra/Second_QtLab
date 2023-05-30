@@ -3,6 +3,7 @@
 #include"Unit.h"
 #include"ClassUnit.h"
 
+// создание юнита "метод"
 class MethodUnit : public Unit {
 public:
      enum Modifier {
@@ -12,9 +13,9 @@ public:
      };
 public:
      MethodUnit( const std::string& name, const std::string& returnType, Flags flags):
-        m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
+        m_name( name ), m_returnType( returnType ), m_flags( flags ) { } // конструктор принимает имя, возвращаемый тип и флаги модификаторов
 
-     void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {
+     void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {// добавляет юнит в тело метода
         m_body.push_back( unit );
      }
      //virtual std::string compile( unsigned int level = 0 ) const = 0;
@@ -45,9 +46,9 @@ public:
          return result;
      }*/
 protected:
-     std::string m_name;
-     std::string m_returnType;
-     Flags m_flags;
-     std::vector< std::shared_ptr< Unit > > m_body;
+     std::string m_name;                            // название метода
+     std::string m_returnType;                      // возвращаемый тип метода
+     Flags m_flags;                                 // модификаторы метода
+     std::vector< std::shared_ptr< Unit > > m_body; // тело метода
 };
 #endif // METHODUNIT_H

@@ -8,9 +8,12 @@ class ClassUnit : public Unit
 {
 public:
      enum AccessModifier {
-         PUBLIC,
-         PROTECTED,
-         PRIVATE
+         PUBLIC,             // C# C++ JAVA
+         PROTECTED,          // C# C++ JAVA
+         PRIVATE,            // C# C++ JAVA
+         INTERNAL,           // C#
+         PROTECTED_INTERNAL, // C#
+         PRIVATE_PROTECTED,  // C#
      };
     static const std::vector< std::string > ACCESS_MODIFIERS;
 

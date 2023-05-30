@@ -4,6 +4,7 @@
 #include"MethodUnit.h"
 #include"PrintOperatorUnit.h"
 #include"cpp/CPP_Factory.h"
+#include"csharp/CSHARP_Factory.h"
 
 /*std::string generateProgram() {
      ClassUnit myClass( "MyClass" );
@@ -47,7 +48,8 @@ std::string generateProgram(const std::shared_ptr< AbstractFactory >& factory) {
 }
 
 int main() {
-    std::cout << generateProgram(std::make_shared< CPP_AbstractFactorty >()) << std::endl;
+    //std::cout << generateProgram(std::make_shared< CPP_AbstractFactorty >()) << std::endl;
+    std::cout << generateProgram(std::make_shared< CSHARP_AbstractFactorty >()) << std::endl;
 
     return 0;
 }
