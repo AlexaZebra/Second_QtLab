@@ -5,6 +5,8 @@
 #include"PrintOperatorUnit.h"
 #include"cpp/CPP_Factory.h"
 #include"csharp/CSHARP_Factory.h"
+#include"java/JAVA_Factory.h"
+
 
 /*std::string generateProgram() {
      ClassUnit myClass( "MyClass" );
@@ -36,11 +38,11 @@
 
 std::string generateProgram(const std::shared_ptr< AbstractFactory >& factory) {
     auto myClass = factory->CreateClassUnit("MyClass");
-    myClass->add(factory->CreateMethodUnit("testFunc1", "void", 0),ClassUnit::PUBLIC);
-    myClass->add(factory->CreateMethodUnit("testFunc2", "void", MethodUnit::STATIC),ClassUnit::PRIVATE);
-    myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST),ClassUnit::PUBLIC);
+    myClass->add(factory->CreateMethodUnit("testFunc1", "void", MethodUnit::PUBLIC),ClassUnit::PUBLIC);
+    myClass->add(factory->CreateMethodUnit("testFunc2", "void", MethodUnit::STATIC | ClassUnit::PRIVATE),ClassUnit::PRIVATE);
+    myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST | MethodUnit::PUBLIC),ClassUnit::PUBLIC);
 
-    std::shared_ptr< MethodUnit > method = factory->CreateMethodUnit( "testFunc4", "void", MethodUnit::STATIC );
+    std::shared_ptr< MethodUnit > method = factory->CreateMethodUnit( "testFunc4", "void", MethodUnit::STATIC | MethodUnit::PROTECTED);
     method->add(factory->CreatePrintOperatorUnit( R"(Hello, world!)" ));
     myClass->add(method, ClassUnit::PROTECTED);
 
@@ -49,7 +51,9 @@ std::string generateProgram(const std::shared_ptr< AbstractFactory >& factory) {
 
 int main() {
     //std::cout << generateProgram(std::make_shared< CPP_AbstractFactorty >()) << std::endl;
-    std::cout << generateProgram(std::make_shared< CSHARP_AbstractFactorty >()) << std::endl;
+    //std::cout << generateProgram(std::make_shared< CSHARP_AbstractFactorty >()) << std::endl;
+    std::cout << generateProgram(std::make_shared< JAVA_AbstractFactorty >()) << std::endl;
+
 
     return 0;
 }
