@@ -50,5 +50,5 @@ protected:
     std::vector< Fields > m_fields;                       // модификаторы класса (вектор векторов)
 };
 const std::vector< std::string > ClassUnit::ACCESS_MODIFIERS = { "public",
-"protected", "private" };
+"protected", "private", "internal", "protected_internal", "private_protected" };
 #endif // CLASSUNIT_H
