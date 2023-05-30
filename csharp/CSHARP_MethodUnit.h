@@ -18,6 +18,7 @@ public:
 
         result += m_returnType + ' ' + m_name + "()";   // добавляем возвращаемый тип и имя метода
                                                         // const для метода нет в C#
+        result += " {\n";                               // открытая скобка определения метода
         for (const auto& it : m_body)                   // производим генерацию с нужными отступами
             result += it->compile(level + 1);
 
