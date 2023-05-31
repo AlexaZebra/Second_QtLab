@@ -33,4 +33,8 @@ HEADERS += \
     include/Factory.h \
     include/MethodUnit.h \
     include/PrintOperatorUnit.h \
-    include/Unit.h
+    include/Unit.h \
+    java/JAVA_ClassUnit.h \
+    java/JAVA_Factory.h \
+    java/JAVA_MethodUnit.h \
+    java/JAVA_PrintOperatorUnit.h

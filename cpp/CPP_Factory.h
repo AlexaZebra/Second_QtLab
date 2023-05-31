@@ -7,7 +7,7 @@
 #include"AbstractFactory.h"
 
 // Абстрактная фабрика для языка C++
-class CPP_AbstractFactorty : public AbstractFactory
+class CPP_AbstractFactory : public AbstractFactory
 {
 public:
     // cоздаёт smart ptr CPP_ClassUnit и возвращает его
@@ -24,7 +24,7 @@ public:
         return std::make_shared<CPP_PrintOperatorUnit>(text);
     };
 
-    ~CPP_AbstractFactorty() override = default;
+    ~CPP_AbstractFactory() override = default;
 };
 
 #endif // CPP_FACTORY_H

@@ -7,7 +7,7 @@
 #include "csharp/CSHARP_PrintOperatorUnit.h"
 
 // Абстрактная фабрика для языка C#
-class CSHARP_AbstractFactorty : public AbstractFactory
+class CSHARP_AbstractFactory : public AbstractFactory
 {
 public:
     // cоздаёт smart ptr CSHARP_ClassUnit и возвращает его
@@ -24,7 +24,7 @@ public:
         return std::make_shared<CSHARP_PrintOperatorUnit>(text);
     };
 
-    ~CSHARP_AbstractFactorty() override = default;
+    ~CSHARP_AbstractFactory() override = default;
 };
 
 #endif // CSHARP_FACTORY_H

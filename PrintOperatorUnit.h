@@ -6,14 +6,9 @@
 // вывод юнита
 class PrintOperatorUnit : public Unit {
 public:
-    explicit PrintOperatorUnit( const std::string& text ) : m_text( text ) { }
-
-    virtual std::string compile( unsigned int level = 0 ) const = 0;
-/*    std::string compile( unsigned int level = 0 ) const {
-        return generateShift( level ) + "printf( \"" + m_text + "\" );\n";
-    } */
+    explicit PrintOperatorUnit( const std::string& text ) : _text( text ) { }
 
 protected:
-    std::string m_text;
+    std::string _text;
 };
 #endif // PRINTOPERATORUNIT_H

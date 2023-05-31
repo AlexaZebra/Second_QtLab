@@ -4,22 +4,19 @@
 
 class JAVA_ClassUnit : public ClassUnit {
 public:
-  static const std::vector <std::string> ACCESS_MODIFIERS;    // Модификаторы доступа для С++
-
+  static const std::vector <std::string> ACCESS_MODIFIERS;    // Модификаторы доступа
 public:
     JAVA_ClassUnit(const std::string& name): ClassUnit(name){};
 
     std::string compile(unsigned int level = 0) const override{
-        std::string result = generateShift(level) + "class " + m_name + " {\n"; // производим генерацию класса
+        std::string result = generateShift(level) + "class " + _name + " {\n";  // производим генерацию класса
         for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ){                  // проходимся по всем полям модификаторов
 
-            if (m_fields[i].empty())                                            // если в поле модификатора нет юнитов,
+            if (_fields[i].empty())                                             // если в поле модификатора нет юнитов,
                 continue;                                                       // то переходим на следующую итерацию
 
-            //result += ACCESS_MODIFIERS[i] + " ";
-
-            for (const auto& it : m_fields[i])                                  // проходимся по всем юнитам в поле модификатора
-                result += it->compile(level + 1);                               // и генерируем модификаторы, потом добавляем их
+            for (const auto& it : _fields[i])                                   // проходимся по всем юнитам в поле модификатора
+                result += it->compile(level + 1);                               // и генерируем юниты, потом добавляем их
 
             result += '\n';
         }
@@ -27,6 +24,5 @@ public:
         return result;                                                          // возвращаем результат
     }
 };
-const std::vector< std::string > JAVA_ClassUnit::ACCESS_MODIFIERS = { "public",
-"protected", "private" };
+const std::vector< std::string > JAVA_ClassUnit::ACCESS_MODIFIERS = { "public","protected", "private"};
 #endif // JAVA_CLASSUNIT_H

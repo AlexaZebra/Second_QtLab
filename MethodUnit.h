@@ -18,42 +18,16 @@ public:
      };
 public:
      MethodUnit( const std::string& name, const std::string& returnType, Flags flags):
-        m_name( name ), m_returnType( returnType ), m_flags( flags ) { } // конструктор принимает имя, возвращаемый тип и флаги модификаторов
+        _name( name ), _returnType( returnType ), _flags( flags ) { } // конструктор принимает имя, возвращаемый тип и флаги модификаторов
 
-     void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {// добавляет юнит в тело метода
-        m_body.push_back( unit );
+     void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) override{// добавляет юнит в тело метода
+        _body.push_back( unit );
      }
-     //virtual std::string compile( unsigned int level = 0 ) const = 0;
-     /*std::string compile( unsigned int level = 0 ) const {
-         std::string result = generateShift( level );
 
-         if( m_flags & STATIC ) {
-            result += "static ";
-         }
-         else if( m_flags & VIRTUAL ) {
-            result += "virtual ";
-         }
-
-         result += m_returnType + " ";
-         result += m_name + "()";
-
-         if( m_flags & CONST ) {
-            result += " const";
-         }
-
-         result += " {\n";
-
-         for( const auto& b : m_body ) {
-            result += b->compile( level + 1 );
-         }
-
-         result += generateShift( level ) + "}\n";
-         return result;
-     }*/
 protected:
-     std::string m_name;                            // название метода
-     std::string m_returnType;                      // возвращаемый тип метода
-     Flags m_flags;                                 // модификаторы метода
-     std::vector< std::shared_ptr< Unit > > m_body; // тело метода
+     std::string _name;                            // название метода
+     std::string _returnType;                      // возвращаемый тип метода
+     Flags _flags;                                 // модификаторы метода
+     std::vector< std::shared_ptr< Unit > > _body; // тело метода
 };
 #endif // METHODUNIT_H

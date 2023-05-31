@@ -8,7 +8,7 @@ public:
     CPP_PrintOperatorUnit(const std::string& text) : PrintOperatorUnit(text){}
 
     std::string compile( unsigned int level = 0 ) const override{                   // генерация на языке C++ вывода в консоль нужного текста
-        return generateShift( level ) + "printf( \"" + m_text + "\" );\n";
+        return generateShift( level ) + "printf( \"" + _text + "\" );\n";
     }
 
 };

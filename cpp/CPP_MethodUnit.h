@@ -11,18 +11,18 @@ public:
 
     std::string compile(const unsigned int level = 0) const override{
         std::string result = generateShift(level);      // производим нужные сдвиги
-        if (m_flags & STATIC)                           // если бит флага установлен на STATIC,
+        if (_flags & STATIC)                            // если бит флага установлен на STATIC,
             result += "static ";                        // то метод статичный
-        else if (m_flags & VIRTUAL)                     // если бит VIRTUAL,
+        else if (_flags & VIRTUAL)                      // если бит VIRTUAL,
             result += "virtual ";                       // то метод виртуальный
 
-        result += m_returnType + ' ' + m_name + "()";   // добавляем возвращаемый тип и имя метода
+        result += _returnType + ' ' + _name + "()";     // добавляем возвращаемый тип и имя метода
 
-        if (m_flags & CONST)                            // если имеет спецификатор CONST,
+        if (_flags & CONST)                             // если имеет спецификатор CONST,
             result += " const";                         // то добавим const
         result += " {\n";                               // скобка метода
 
-        for (const auto& it : m_body)                   // производим генерацию с нужными отступами
+        for (const auto& it : _body)                    // производим генерацию тела метода с нужными отступами
             result += it->compile(level + 1);
 
         result += generateShift(level) + "}\n";         // закрытая скобка метода

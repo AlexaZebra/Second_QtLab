@@ -8,7 +8,7 @@ public:
     JAVA_PrintOperatorUnit(const std::string& text) : PrintOperatorUnit(text){}
 
     std::string compile( unsigned int level = 0 ) const override{                   // генерация на языке Java вывода в консоль нужного текста
-        return generateShift(level) + "System.out.println( \"" + m_text + "\" );\n";
+        return generateShift(level) + "System.out.println( \"" + _text + "\" );\n";
     }
 
 };

@@ -1,4 +1,3 @@
-//#include <QCoreApplication>
 #include"Unit.h"
 #include"ClassUnit.h"
 #include"MethodUnit.h"
@@ -7,39 +6,10 @@
 #include"csharp/CSHARP_Factory.h"
 #include"java/JAVA_Factory.h"
 
-
-/*std::string generateProgram() {
-     ClassUnit myClass( "MyClass" );
-     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),
-        ClassUnit::PUBLIC
-     );
-
-     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ),
-        ClassUnit::PRIVATE
-     );
-
-     myClass.add(
-        std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL |
-        MethodUnit::CONST ),
-        ClassUnit::PUBLIC
-     );
-
-     auto method = std::make_shared< MethodUnit >( "testFunc4", "void",
-        MethodUnit::STATIC );
-
-     method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
-     myClass.add( method, ClassUnit::PROTECTED );
-
-     return myClass.compile();
-}
-*/
-
-std::string generateProgram(const std::shared_ptr< AbstractFactory >& factory) {
+std::string generateProgram(std::shared_ptr<AbstractFactory>& factory){
     auto myClass = factory->CreateClassUnit("MyClass");
     myClass->add(factory->CreateMethodUnit("testFunc1", "void", MethodUnit::PUBLIC),ClassUnit::PUBLIC);
-    myClass->add(factory->CreateMethodUnit("testFunc2", "void", MethodUnit::STATIC | ClassUnit::PRIVATE),ClassUnit::PRIVATE);
+    myClass->add(factory->CreateMethodUnit("testFunc2", "void", MethodUnit::STATIC),ClassUnit::PRIVATE);
     myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST | MethodUnit::PUBLIC),ClassUnit::PUBLIC);
 
     std::shared_ptr< MethodUnit > method = factory->CreateMethodUnit( "testFunc4", "void", MethodUnit::STATIC | MethodUnit::PROTECTED);
@@ -49,11 +19,35 @@ std::string generateProgram(const std::shared_ptr< AbstractFactory >& factory) {
     return myClass->compile();
 }
 
+void print(const std::string result, std::string name) {
+    std::cout<< "Language " << name << '\n'<< result << std::endl;
+    getchar();
+}
+
 int main() {
-    //std::cout << generateProgram(std::make_shared< CPP_AbstractFactorty >()) << std::endl;
-    //std::cout << generateProgram(std::make_shared< CSHARP_AbstractFactorty >()) << std::endl;
-    std::cout << generateProgram(std::make_shared< JAVA_AbstractFactorty >()) << std::endl;
+    std::string lang;
 
+    for (int i = 0; i < 3; ++i){
+        std::shared_ptr<AbstractFactory> factory;
 
+        switch (i){
+        case 0:
+            factory = std::make_shared<CPP_AbstractFactory>();
+            lang = "C++";
+            break;
+
+        case 1:
+            factory = std::make_shared<CSHARP_AbstractFactory>();
+            lang = "C#";
+            break;
+
+        case 2:
+            factory = std::make_shared<JAVA_AbstractFactory>();
+            lang = "Java";
+            break;
+        }
+
+        print(generateProgram(factory), lang);
+    }
     return 0;
 }

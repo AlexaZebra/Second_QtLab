@@ -11,26 +11,26 @@ public:
     std::string compile(const unsigned int level = 0) const override{
         std::string result = "";
 
-        if(m_flags & PUBLIC)
+        if(_flags & PUBLIC)
             result += "public ";
-        else if(m_flags & PROTECTED)
+        else if(_flags & PROTECTED)
             result += "protected ";
         else
             result += "private ";
 
 
-        if (m_flags & STATIC)                           // если бит флага установлен на STATIC,
+        if (_flags & STATIC)                            // если бит флага установлен на STATIC,
             result += "static ";                        // то метод статичный
-        else if (m_flags & FINAL)                       // final предотвращает метод от изменений в подклассе.
+        else if (_flags & FINAL)                        // final предотвращает метод от изменений в подклассе.
             result += "final ";
-        else if (m_flags & ABSTRACT)                    // Методы abstract никогда не могут быть final
+        else if (_flags & ABSTRACT)                     // Методы abstract никогда не могут быть final
             result += "abstract ";
 
-        result += m_returnType + ' ' + m_name + "()";   // добавляем возвращаемый тип и имя метода
+        result += _returnType + ' ' + _name + "()";     // добавляем возвращаемый тип и имя метода
 
         result += " {\n";                               // скобка метода
 
-        for (const auto& it : m_body)                   // производим генерацию с нужными отступами
+        for (const auto& it : _body)                    // производим генерацию тела метода с нужными отступами
             result += it->compile(level + 1);
 
         result += generateShift(level) + "}\n";         // закрытая скобка метода
