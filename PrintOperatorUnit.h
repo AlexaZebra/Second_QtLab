@@ -6,7 +6,7 @@
 // вывод юнита
 class PrintOperatorUnit : public Unit {
 public:
-    explicit PrintOperatorUnit( const std::string& text ) : _text( text ) { }
+    PrintOperatorUnit( const std::string& text ) : _text( text ) { }
 
 protected:
     std::string _text;

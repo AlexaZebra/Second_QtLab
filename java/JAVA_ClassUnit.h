@@ -14,6 +14,7 @@ public:
 
             if (_fields[i].empty())                                             // если в поле модификатора нет юнитов,
                 continue;                                                       // то переходим на следующую итерацию
+            result += ACCESS_MODIFIERS[i] + " ";                                // иначе добавляем к result имя модификатора
 
             for (const auto& it : _fields[i])                                   // проходимся по всем юнитам в поле модификатора
                 result += it->compile(level + 1);                               // и генерируем юниты, потом добавляем их

@@ -6,7 +6,7 @@
 #include"JAVA_PrintOperatorUnit.h"
 #include"AbstractFactory.h"
 
-// Абстрактная фабрика для языка C++
+// Абстрактная фабрика для языка Java
 class JAVA_AbstractFactory : public AbstractFactory
 {
 public:

@@ -12,13 +12,6 @@ public:
     std::string compile(const unsigned int level = 0) const override{
         std::string result = "";
 
-        if(_flags & PUBLIC)
-            result += "public ";
-        else if(_flags & PROTECTED)
-            result += "protected ";
-        else
-            result += "private ";
-
         if (_flags & STATIC)                            // если бит флага установлен на STATIC,
             result += "static ";                        // то метод статичный
         else if (_flags & VIRTUAL)                      // иначе, если бит VIRTUAL,

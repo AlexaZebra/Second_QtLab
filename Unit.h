@@ -12,7 +12,7 @@ public:
 
 public:
      virtual ~Unit() = default;
-     virtual void add( const std::shared_ptr< Unit >& , Flags ) {       // add(добавление юнита, модификатора, метода, вывода)
+     virtual void add( const std::shared_ptr< Unit >& , Flags ) {       // add(добавление класса, модификатора, метода, вывода)
         throw std::runtime_error( "Not supported" );
      }
      virtual std::string compile( unsigned int level = 0 ) const = 0;   // формирование юнита в виде текста и возврат строки

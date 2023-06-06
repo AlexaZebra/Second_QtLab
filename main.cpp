@@ -8,11 +8,11 @@
 
 std::string generateProgram(std::shared_ptr<AbstractFactory>& factory){
     auto myClass = factory->CreateClassUnit("MyClass");
-    myClass->add(factory->CreateMethodUnit("testFunc1", "void", MethodUnit::PUBLIC),ClassUnit::PUBLIC);
+    myClass->add(factory->CreateMethodUnit("testFunc1", "void", 0),ClassUnit::PUBLIC);
     myClass->add(factory->CreateMethodUnit("testFunc2", "void", MethodUnit::STATIC),ClassUnit::PRIVATE);
-    myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST | MethodUnit::PUBLIC),ClassUnit::PUBLIC);
+    myClass->add(factory->CreateMethodUnit("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST),ClassUnit::PUBLIC);
 
-    std::shared_ptr< MethodUnit > method = factory->CreateMethodUnit( "testFunc4", "void", MethodUnit::STATIC | MethodUnit::PROTECTED);
+    std::shared_ptr< MethodUnit > method = factory->CreateMethodUnit( "testFunc4", "void", MethodUnit::STATIC);
     method->add(factory->CreatePrintOperatorUnit( R"(Hello, world!)" ));
     myClass->add(method, ClassUnit::PROTECTED);
 
