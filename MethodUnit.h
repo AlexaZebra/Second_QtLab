@@ -11,7 +11,7 @@ public:
          CONST = 1 << 1,
          VIRTUAL = 1 << 2,
          FINAL = 1 << 3,
-         ABSTRACT = 1 << 4,
+         ABSTRACT = 1 << 4
      };
 public:
      MethodUnit( const std::string& name, const std::string& returnType, Flags flags):

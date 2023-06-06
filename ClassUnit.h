@@ -22,7 +22,7 @@ public:
         _fields.resize( ACCESS_MODIFIERS.size() );                  // и вектор модификаторов класса
     }
 
-    void add( const std::shared_ptr< Unit >& unit, Flags flags ) override { // функция добавления юнита и вектор модификаторов класса
+    void add( const std::shared_ptr< Unit >& unit, Flags flags ) override { // функция добавления юнита  вектор модификаторов класса
         int accessModifier = PRIVATE;                                       // по умолчанию модификатор private
         if( flags < ACCESS_MODIFIERS.size() ) {                             // если был передан другой из существующих модификаторов,
             accessModifier = flags;                                         // то присваиваем его
